@@ -17,14 +17,12 @@ const Transactions = () => {
 
   const allTransactions = async () => {
     try {
-      console.log("hello")
       const res = await axios.get(BASE_URL + "/transactions", {
         withCredentials: true,
       });
 
-      await dispatch(addTransaction(res.data.transactions));
+       dispatch(addTransaction(res.data.transactions));
     } catch (err) {
-      // navigate("/login")
       console.log(err.message);
     }
   };
