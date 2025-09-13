@@ -1,2 +1,2 @@
-const BASE_URL="http://localhost:7888"
+const BASE_URL="https://finance-backend-gh6r.onrender.com"
 export default BASE_URL
