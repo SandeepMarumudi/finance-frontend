@@ -23,7 +23,7 @@
               const res=await axios.post(BASE_URL+"/signup",{firstName,lastName,email,phone,password},{withCredentials:true})
               dispatch(addUser(res.data.data))
               setError("")
-              return navigate("/allTransactions")
+              return navigate("/login")
 
           }catch(err){ 
               setError(err.response.data.message)
