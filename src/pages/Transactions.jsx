@@ -24,6 +24,7 @@ const Transactions = () => {
 
       await dispatch(addTransaction(res.data.transactions));
     } catch (err) {
+      navigate("/login")
       console.log(err.message);
     }
   };
