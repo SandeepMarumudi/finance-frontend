@@ -5,6 +5,7 @@
   import { useDispatch } from 'react-redux'
   import { addUser } from '../redux/users/userSlice'
   import { useNavigate } from 'react-router-dom'
+import Toast from '../components/toast/Toast'
 
   const Login = () => {
     const [loginForm,setLoginForm]=useState(false)
@@ -14,6 +15,7 @@
     const [phone,setPhone]=useState("")
     const [password,setPassword]=useState("Rohit2242@")
     const [error,setError]=useState("")
+    const [toast,setToast]=useState(false)
     const navigate=useNavigate()
 
     const dispatch=useDispatch()
@@ -23,7 +25,12 @@
               const res=await axios.post(BASE_URL+"/signup",{firstName,lastName,email,phone,password},{withCredentials:true})
               dispatch(addUser(res.data.data))
               setError("")
-              return navigate("/login")
+              setToast(true)
+              setTimeout(()=>{
+                setToast(false)
+                 navigate("/login")
+              })
+              
 
           }catch(err){ 
               setError(err.response.data.message)
@@ -48,6 +55,8 @@
       }
 
     return (
+      <div>
+       { toast && <Toast/>}
       <div className="flex justify-center my-10">
         <div className="card  bg-base-300 w-96 shadow-sm ">
           <div className="card-body items-center text-center">
@@ -108,6 +117,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
   }
