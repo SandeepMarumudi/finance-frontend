@@ -10,9 +10,9 @@ const Login = () => {
    const [loginForm,setLoginForm]=useState(false)
    const [firstName,setFirstName]=useState("")
    const [lastName,setLastName]=useState("")
-   const [email,setEmail]=useState("")
+   const [email,setEmail]=useState("rohit@gmail.com")
    const [phone,setPhone]=useState("")
-   const [password,setPassword]=useState("")
+   const [password,setPassword]=useState("Rohit2242@")
    const [error,setError]=useState("")
    const navigate=useNavigate()
 
@@ -41,7 +41,8 @@ const Login = () => {
         navigate("/")
 
       }catch(err){
-        setError(err.response.data.message)
+        setError(err?.response?.data?.message)
+        console.log(err)
       
       }
     }
