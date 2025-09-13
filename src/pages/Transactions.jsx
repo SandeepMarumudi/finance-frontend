@@ -15,6 +15,9 @@ const Transactions = () => {
     const allTransactions=async()=>{
      try{
         const res=await axios.get(BASE_URL+"/transactions",{withCredentials:true})
+        if(res.status!==200){
+          navigate("/login")
+        }
         dispatch(addTransaction(res.data.transactions))
      }catch(err){
         console.log(err.message)
