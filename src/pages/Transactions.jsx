@@ -20,14 +20,14 @@ const Transactions = () => {
       const res = await axios.get(BASE_URL + "/transactions", {
         withCredentials: true,
       });
-
-      if(res.status===401){
-        navigate("/login")
-      }
+      
 
        dispatch(addTransaction(res.data.transactions));
     } catch (err) {
       console.log(err.message);
+      if(res.status===401){
+        navigate("/login")
+      }
     }
   };
   useEffect(() => {
