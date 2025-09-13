@@ -24,10 +24,10 @@ const Transactions = () => {
 
        dispatch(addTransaction(res.data.transactions));
     } catch (err) {
-      console.log(err.status);
-      
-        // navigate("/login")
-      
+      console.log(err.message);
+      if(err.status===401){
+        navigate("/login")
+      }
     }
   };
   useEffect(() => {
