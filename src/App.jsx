@@ -11,7 +11,7 @@ import React from 'react'
 import Login from './pages/Login'
 import Transactions from './pages/Transactions'
 import AddTransactionForm from './pages/AddTransactionForm'
-import ViewTransaction from './pages/viewTransaction'
+import ViewTransaction from './pages/ViewTransaction'
 import EditTransaction from './pages/EditTransaction'
 
 
