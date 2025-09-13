@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import BASE_URL from "../../constants/constants";
 import { addUser, removeUser } from "../../redux/users/userSlice";
-import { setFilterCategory } from "../../redux/transactions/transactionSlice";
+import { removeTransaction, setFilterCategory } from "../../redux/transactions/transactionSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.users);
@@ -20,6 +20,7 @@ const Navbar = () => {
         { withCredentials: true }
       );
       dispatch(removeUser())
+      dispatch(removeTransaction())
       navigate("/login");
     } catch (err) {
       console.log(err.message);
