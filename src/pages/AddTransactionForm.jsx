@@ -107,13 +107,14 @@ const AddTransactionForm = () => {
           </form>
         </div>
       </div>
-    </div>
-     <button
+       <button
               className="btn btn-error"
               onClick={() => navigate("/")}
             >
               Back
             </button>
+    </div>
+    
    </div>
   );
 };
